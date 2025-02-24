@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+
+  div
+    //- form(action="/signup",method="post")
+    form(action="http://localhost:3000/users/sso_sign_in",method="post")
+      input(type="text",name="data",value="hello-world")
+      input(type="text",name="SAMLResponse",value=`SAML response here`)
+      input(type="submit",value="Sign in with SSO")
