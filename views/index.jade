@@ -5,8 +5,19 @@ block content
   p Welcome to #{title}
 
   div
-    //- form(action="/signup",method="post")
+    h2 IDP Sign in request
     form(action="http://localhost:3000/users/sso_sign_in",method="post")
-      input(type="text",name="data",value="hello-world")
-      input(type="text",name="SAMLResponse",value=`SAML response here`)
-      input(type="submit",value="Sign in with SSO")
+      textarea(name="SAMLResponse",placeholder="SAML Response here",rows=20,cols=50)
+      br
+      input(type="submit",value="Sign in")
+
+  hr
+  div
+    h2 IDP Sign out request
+    form(action="http://localhost:3000/sso_idp_sign_out",method="post")
+      input(type="text",name="spEntityId",placeholder="Service Provider Entity ID")
+      br
+      br
+      textarea(name="SAMLRequest",placeholder="SAML Response here",rows=20,cols=50)
+      br
+      input(type="submit",value="Sign out")
